@@ -10,13 +10,6 @@ create database dbpanadaria;
 
 use dbpanadaria;
 
-create table tbgenero(
-cod_gen int not null,
-nome_gen varchar(100),
-primary key(cod_gen)
-);
-
-
 create table tbfuncionario(
 cod_fun int not null auto_increment,
 nome_fun varchar(50) not null,
@@ -25,9 +18,7 @@ tel_fun char(10),
 dataNasc_fun datetime,
 salario_fun decimal (9,2) default 0 check(salario_fun >= 0),
 sexo_fun char(1) default "X" check(sexo_fun in("F","M")),
-cod_gen int not null,
-primary key(cod_fun),
-foreign key(cod_gen)references tbgenero(cod_gen)
+primary key(cod_fun)
 );
 
 create table tbusuarios(
@@ -43,7 +34,7 @@ create table tbCliente(
 cod_clie int not null auto_increment,
 nome varchar(100) not null,
 cpf_clie char(14) not null unique,
-email_clie varchar(100),
+email_clie varchar(100) unique,
 primary key(cod_clie)
 );
 
@@ -86,6 +77,35 @@ show tables;
 
 desc tbusuarios;
 desc tbfuncionario;
-desc tbgenero;
 desc tbFornecedor;
 desc tbProdutos;
+
+insert into tbCliente(nome,cpf_clie,email_clie)
+	values('Androsvaldo',
+		'00700700707',
+		'rodolfo@vaticano.bb');
+insert into tbCliente(nome,cpf_clie,email_clie)
+	values('cleuroplene',
+		'00800800808',
+		'fifi@vaticano.bb');
+
+insert into tbFornecedor(nome_forn,tel_forn,email_forn)
+	values('Larineia',
+		'001',
+		'bibiSapatinha@vaticano.bb');
+insert into tbFornecedor(nome_forn,tel_forn,email_forn)
+	values('Deudicasprio',
+		'002',
+		'OMarilene@vaticano.bb');
+
+insert into tbfuncionario(nome_fun,salario_fun,sexo_fun,email_fun,tel_fun,dataNasc_fun)
+	values('Adaujilberto',
+		12.50,
+		'F',
+		'LindinhaFofs@vaticano.bb',
+		'123123',
+		"1800-12-10");
+
+select * from tbCliente;
+select * from tbfuncionario;
+select * from tbFornecedor;
