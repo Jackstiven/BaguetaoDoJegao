@@ -52,7 +52,7 @@ desc_prod varchar(100),
 quant_prod int,
 preco_prod decimal(5,2),
 dataVal_prod datetime,
-lote_prod varchar(10),
+lote_prod varchar(10) unique,
 cod_forn int not null,
 primary key(cod_prod),
 foreign key (cod_forn) references tbFornecedor(cod_forn)
@@ -105,6 +105,50 @@ insert into tbfuncionario(nome_fun,salario_fun,sexo_fun,email_fun,tel_fun,dataNa
 		'LindinhaFofs@vaticano.bb',
 		'123123',
 		"1800-12-10");
+insert into tbfuncionario(nome_fun,salario_fun,sexo_fun,email_fun,tel_fun,dataNasc_fun)
+	values('Rogemilda',
+		120000.50,
+		'M',
+		'CaueeeeeKSI@vaticano.bb',
+		'145632',
+		"2019-8-10");
+
+insert into tbProdutos(desc_prod,lote_prod,preco_prod,quant_prod,dataVal_prod,cod_forn)
+	values('Motor a vapor',
+		'AER96154A',
+		50000.66,
+		5,
+		'3058-03-09',
+		1);
+insert into tbProdutos(desc_prod,lote_prod,preco_prod,quant_prod,dataVal_prod,cod_forn)
+	values('Extrator de petroleo',
+		'd789ghj5',
+		402552.46,
+		11,
+		'5000-09-01',
+		1);
+insert into tbProdutos(desc_prod,lote_prod,preco_prod,quant_prod,dataVal_prod,cod_forn)
+	values('Sezio137/g',
+		'AER96154A',
+		1.50,
+		10000,
+		'125-05-12',
+		1);
+
+insert into tbvendas(VenData,VenHorario,VenQuant,VenValor,VenProdID,VenUsuID)
+	values('2025-02-28',
+		'00-35-19',
+		1,
+		50000.66,
+		1,
+		1,);
+insert into tbvendas(VenData,VenHorario,VenQuant,VenValor,VenProdID,VenUsuID)
+	values('2025-02-28',
+		'00-35-19',
+		2,
+		3.00,
+		3,
+		2,);
 
 select * from tbCliente;
 select * from tbfuncionario;
