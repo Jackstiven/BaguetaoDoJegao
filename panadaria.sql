@@ -153,3 +153,6 @@ insert into tbvendas(VenData,VenHorario,VenQuant,VenValor,VenProdID,VenUsuID)
 select * from tbCliente;
 select * from tbfuncionario;
 select * from tbFornecedor;
+select * from tbProdutos;
+select * from tbvendas;
+select * from tbusuarios;
